@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef pair<int, int> PII;
-typedef vector<vector<PII> > Graph;  // first ´æ·ÅÄ¿µÄµã£¬ second´æ·ÅÕâÌõ±ßµÄÈİÁ¿¡£
+typedef vector<vector<PII> > Graph;  // first ï¿½ï¿½ï¿½Ä¿ï¿½Äµã£¬ secondï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 bool dfs(Graph G, vector<int> &path, vector<bool> &vis, int &f, int u, int t){
     if(u == t) return true;
     if(vis[u]) return false;
@@ -28,7 +28,7 @@ vector<int> printPath(vector<int> path, int f, int s, int t){
         p = path[p];
     }
     Augmented_path.push_back(to_string(s));
-    cout<<"Á÷Á¿ÊÇ£º"<<f<<"\t";
+    cout<<"ï¿½ï¿½ï¿½ï¿½ï¿½Ç£ï¿½"<<f<<"\t";
     reverse(Augmented_path.begin(), Augmented_path.end());
     for(auto &a:Augmented_path) cout<<a; 
     cout<<'\n';
@@ -48,7 +48,7 @@ void add_Residual_edge(Graph &G, vector<int> path, int f, int s, int t){
             int v = G[u][i].first;
             int val = G[u][i].second;
             if(vis[v] || path[u] != v) continue;
-            G[u][i].second -= f;  // È¡³öÏàÓ¦µÄÁ÷Á¿
+            G[u][i].second -= f;  // È¡ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             Q.push(v);
             bool extis = false;
             for(int j = 0;j<G[v].size();j++){
@@ -67,9 +67,9 @@ void add_Residual_edge(Graph &G, vector<int> path, int f, int s, int t){
 }
 int main(){
     Graph G;
-    int V, E; // Í¼µÄ¶¥µã¸öÊı ºÍ ±ßµÄ¸öÊı
+    int V, E; // the number of Vertex and Edge
     cin>>V>>E;
-    G.resize(V+1);  // Í¼µÄ¶¨µã±êºÅ´Ó1¿ªÊ¼¡£ 0„21×÷ÎªÔ´µãs, V×÷Îª»ãµãt
+    G.resize(V+1);  // the graph, the begin Vertex is number 1, the end Vertex number V
     for(int i=1;i<=E;i++){
         int u, v, e;
         cin>>u>>v>>e;
@@ -85,12 +85,12 @@ int main(){
         fill(path.begin(), path.end(), 0);
         if(!dfs(G, path, vis, f, 1, V)) break;
         maxflow += f;
-        // Êä³öÔö¹ãÂ·¾¶
+        // output the Augmented path
         path = printPath(path, f, 1, V);
-        // Ìí¼Ó·´Ïò±ß
+        // add Residual edges
         add_Residual_edge(G, path, f, 1, V);
     }
-    cout<<"×î´óÁ÷ÊÇ£º"<<maxflow<<'\n';
+    cout<<"the max flow id: "<<maxflow<<'\n';
     return 0;
 }
 /*
@@ -123,8 +123,21 @@ int main(){
 6 7 10
 
 # 3
-
-
+8 14
+1 2 15
+1 4 7
+1 3 17
+2 4 5
+2 5 15
+3 4 8
+3 6 10
+4 5 20
+4 6 30
+5 7 30
+5 8 5
+6 5 5
+6 8 10
+7 8 20
 
 */
 

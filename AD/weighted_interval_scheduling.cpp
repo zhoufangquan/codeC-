@@ -23,9 +23,9 @@ void get_p(vector<int> &p, vector<node> &interval){
 
 int main(){
 
-    int n; // ÈÎÎñÊý
+    int n; // ä»»åŠ¡æ•°
     cin>>n;
-    vector<node> interval(n+1);  // ÈÎÎñ¹¤×÷Ê±¼ä
+    vector<node> interval(n+1);  // å·¥ä½œæ—¶é—´
     vector<int> p(n+1, 0), dp(n+1, 0);
     for(int i=0;i<n;i++){
         int s, f, val;
