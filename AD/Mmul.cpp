@@ -63,7 +63,7 @@ void Combine(Matrix &M, Matrix &M11, Matrix &M12, Matrix &M21, Matrix &M22){
 
 void input_M(Matrix &M, int m, int n){
     M.clear();
-    cout<<" 输入一个矩阵：\n";
+    cout<<" Input a Matrix:\n";
     for(int i=0;i<m;i++){
         vector<int> t;
         for(int j=0;j<n;j++){
@@ -76,7 +76,7 @@ void input_M(Matrix &M, int m, int n){
 
 void output_M(Matrix M){
     int m = M.size(), n = M[0].size();
-    cout<<" 输出得到的矩阵：\n";
+    cout<<" Output the gained Matrix: \n";
     for(int i=0;i<m;i++){
         for(int j=0;j<n;j++){
             cout<<M[i][j]<<' ';
@@ -137,7 +137,7 @@ void compress(Matrix &M, int r, int c){
 }
 
 Matrix Mmul(Matrix A, Matrix B){
-    Matrix C;  // 结果矩阵
+    Matrix C;  // Matrix to save the ans
     int m = A.size(),n = B.size(),r = B[0].size();
     if(m == 1 && n == 1 && r == 1){
         C.push_back({A[0][0] * B[0][0]});
@@ -154,7 +154,7 @@ Matrix Mmul(Matrix A, Matrix B){
 
     // // if(m == 1 || n == 1 || r==1){
     // Matrix M1, M2, M3, M4, M5, M6, M7, M8;
-    // // M1 一定是空矩阵
+    // // M1 is a nan Matrix
     // if(m != 1 && n!=1 && r!=1) M1 = Mmul(A11, B11);
     // if(m != 1 && r != 1) M2 = Mmul(A12, B21);
     // if(m != 1 && n != 1) M3 = Mmul(A11, B12);
