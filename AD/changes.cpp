@@ -43,9 +43,20 @@ int main(){
         }
         cout<<'\n';
     }
-    cout<<"the least number of coins is: "<< dp[n][M];
+    cout<<"the least number of coins is: "<< dp[n][M]<<'\n';
 
     // 输出找回的钱数
+    cout<<"Output the coins needed to change: ";
+    int i=n, j=M;
+    while(i!=0 || j!=0){
+        if(i == 0 || dp[i-1][j] != dp[i][j]){
+            cout<<coins[i-1]<<' ';
+            j -= coins[i-1];
+        }
+        else{
+            i--;
+        }
+    }
 
 /*
 我们同样也可以用一维数组来解决这个问题。
@@ -70,6 +81,12 @@ for(int i=1;i<=n;i++) // 使用了前i个硬币的面值得到的最优解
 /*
 
 5 23
+1 5 7 35 70
+
+5 34
+1 5 7 35 70
+
+5 70
 1 5 7 35 70
 
 */
