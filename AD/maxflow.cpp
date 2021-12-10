@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef pair<int, int> PII;
-typedef vector<vector<PII> > Graph;  // first ���Ŀ�ĵ㣬 second��������ߵ�������
+typedef vector<vector<PII> > Graph;  // 
 bool dfs(Graph G, vector<int> &path, vector<bool> &vis, int &f, int u, int t){
     if(u == t) return true;
     if(vis[u]) return false;
@@ -28,7 +28,7 @@ vector<int> printPath(vector<int> path, int f, int s, int t){
         p = path[p];
     }
     Augmented_path.push_back(to_string(s));
-    cout<<"�����ǣ�"<<f<<"\t";
+    cout<<"Output the Augmented path and the value of the flow: "<<f<<"\t";
     reverse(Augmented_path.begin(), Augmented_path.end());
     for(auto &a:Augmented_path) cout<<a; 
     cout<<'\n';
@@ -48,7 +48,7 @@ void add_Residual_edge(Graph &G, vector<int> path, int f, int s, int t){
             int v = G[u][i].first;
             int val = G[u][i].second;
             if(vis[v] || path[u] != v) continue;
-            G[u][i].second -= f;  // ȡ����Ӧ������
+            G[u][i].second -= f;  // 怎能更反向边
             Q.push(v);
             bool extis = false;
             for(int j = 0;j<G[v].size();j++){
@@ -90,7 +90,7 @@ int main(){
         // add Residual edges
         add_Residual_edge(G, path, f, 1, V);
     }
-    cout<<"the max flow id: "<<maxflow<<'\n';
+    cout<<"the max flow is: "<<maxflow<<'\n';
     return 0;
 }
 /*
@@ -123,6 +123,21 @@ int main(){
 6 7 10
 
 # 3
+6 11
+1 2 10
+1 3 8
+1 4 5
+2 5 3
+2 6 5
+3 2 3
+3 5 10
+3 4 3
+4 5 3
+4 6 10
+5 6 8
+
+
+# 4
 8 14
 1 2 15
 1 4 7
