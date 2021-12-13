@@ -1,11 +1,12 @@
 create a new repository on the command line
-
+~~~S
 git init
 git add README.md
 git commit -m "first commit"
 git branch -M main
-git remote add origin git@github.com:zhoufangquan/demo.git
+git remote add origin git@github.com:zhoufangquan/codeC-.git
 git push -u origin main
+~~~
 
 # git clone的用法：
 ~~~s
