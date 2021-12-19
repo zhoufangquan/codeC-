@@ -1,4 +1,4 @@
-create a new repository on the command line
+# create a new repository on the command line
 ~~~S
 git init
 git add README.md
