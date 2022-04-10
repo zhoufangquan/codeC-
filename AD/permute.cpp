@@ -16,7 +16,6 @@ void permute(vector<int> arr, int l, int r){
         permute(arr, l+1, r);
         swap(arr[l], arr[l]);
     }
-
     return ;
 }
 
