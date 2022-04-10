@@ -20,7 +20,6 @@ void permute(vector<int> arr, int l, int r){
 }
 
 int main(){
-
     int n;
     cin>>n;
     vector<int> arr(n, 0);
@@ -28,6 +27,5 @@ int main(){
         cin>>arr[i];
     }
     permute(arr, 0, n);
-
     return 0;
 }
